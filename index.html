@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUEUE — Regarder plus tard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="noise"></div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-top">
+    <div class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">QUEUE</span>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" data-view="all">
+        <span class="nav-icon">◈</span>
+        <span class="nav-label">Tout</span>
+        <span class="nav-count" id="countAll">0</span>
+      </button>
+      <button class="nav-item" data-view="unwatched">
+        <span class="nav-icon">○</span>
+        <span class="nav-label">À voir</span>
+        <span class="nav-count" id="countUnwatched">0</span>
+      </button>
+      <button class="nav-item" data-view="watched">
+        <span class="nav-icon">◉</span>
+        <span class="nav-label">Vues</span>
+        <span class="nav-count" id="countWatched">0</span>
+      </button>
+      <button class="nav-item" data-view="pinned">
+        <span class="nav-icon">⌖</span>
+        <span class="nav-label">Épinglées</span>
+        <span class="nav-count" id="countPinned">0</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-section-label nav-label">Trier par</div>
+    <div class="sort-group">
+      <button class="sort-btn active" data-sort="newest"><span class="nav-label">Plus récent</span></button>
+      <button class="sort-btn" data-sort="oldest"><span class="nav-label">Plus ancien</span></button>
+      <button class="sort-btn" data-sort="alpha"><span class="nav-label">A → Z</span></button>
+    </div>
+  </div>
+
+  <div class="sidebar-bottom">
+    <button class="tool-btn" id="importBtn" title="Importer">
+      <span>↑</span><span class="nav-label"> Importer</span>
+    </button>
+    <button class="tool-btn" id="exportBtn" title="Exporter">
+      <span>↓</span><span class="nav-label"> Exporter</span>
+    </button>
+    <button class="tool-btn" id="themeBtn" title="Thème">
+      <span id="themeIcon">◑</span><span class="nav-label"> Thème</span>
+    </button>
+  </div>
+</aside>
+
+<button class="sidebar-toggle" id="sidebarToggle" title="Réduire la sidebar">‹</button>
+
+<main class="main">
+
+  <div class="topbar">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="searchInput" placeholder="Rechercher une vidéo…" autocomplete="off" spellcheck="false">
+      <button class="search-clear" id="searchClear" aria-label="Effacer">✕</button>
+    </div>
+    <div class="add-wrap">
+      <input type="text" id="videoUrl" placeholder="Colle une URL YouTube…" autocomplete="off" spellcheck="false">
+      <button id="addBtn" onclick="addVideo()">
+        <span class="btn-label">Ajouter</span>
+        <span class="btn-loader" hidden>…</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="grid-header">
+    <span class="grid-info" id="gridInfo"></span>
+    <div class="layout-toggle">
+      <button class="layout-btn active" data-layout="grid" title="Grille">▦</button>
+      <button class="layout-btn" data-layout="list" title="Liste">☰</button>
+    </div>
+  </div>
+
+  <div class="video-container" id="videoList"></div>
+
+</main>
+
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-btn active" data-view="all">
+    <span class="mn-icon">◈</span>Tout
+  </button>
+  <button class="mobile-nav-btn" data-view="unwatched">
+    <span class="mn-icon">○</span>À voir
+  </button>
+  <button class="mobile-nav-btn" data-view="watched">
+    <span class="mn-icon">◉</span>Vues
+  </button>
+  <button class="mobile-nav-btn" data-view="pinned">
+    <span class="mn-icon">⌖</span>Épinglées
+  </button>
+</nav>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
