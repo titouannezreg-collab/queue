@@ -353,17 +353,19 @@ urlInput.addEventListener('keydown', e => { if (e.key === 'Enter') addVideo(); }
 
 document.addEventListener('keydown', e => {
     // / → focus search
-    if (e.key === '/' && document.activeElement !== searchInput && document.activeElement !== urlInput) {
+    if (e.key === "/" && document.activeElement !== searchInput && document.activeElement !== urlInput) {
         e.preventDefault();
         searchInput.focus();
     }
     // Escape → blur
-    if (e.key === 'Escape') document.activeElement?.blur();
+    if (e.key === "Escape") document.activeElement?.blur();
 });
 
 // ─── Events ───────────────────────────────────────────────────────────────────
-document.getElementById('exportBtn').addEventListener('click', exportVideos);
-document.getElementById('importBtn').addEventListener('click', importVideos);
+document.getElementById("exportBtn").addEventListener("click", exportVideos);
+document.getElementById("importBtn").addEventListener("click", importVideos);
+document.getElementById("exportBtnMobile").addEventListener("click", exportVideos);
+document.getElementById("importBtnMobile").addEventListener("click", importVideos);
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 applyLayout();
