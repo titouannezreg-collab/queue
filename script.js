@@ -170,7 +170,7 @@ function buildCard(video, index) {
             <div class="card-thumb">
                 <img src="${escHtml(video.thumbnail)}" alt="${escHtml(video.title)}"
                      onerror="this.style.opacity=0" loading="lazy">
-                <div class="card-play"><div class="card-play-inner">▶</div></div>
+                <div class="card-play-overlay"><span>▶</span></div>
             </div>
         </a>
         <div class="card-body">
@@ -185,6 +185,8 @@ function buildCard(video, index) {
             <button class="action-btn delete-btn" title="Supprimer">✕</button>
         </div>
     `;
+
+
 
     card.querySelector('.pin-btn').addEventListener('click', e => {
         e.preventDefault();
